@@ -6,6 +6,9 @@ RUN docker-php-ext-install -j$(nproc) mysqli \
     && chmod +x wp-cli.phar \
     && mv wp-cli.phar /usr/local/bin/wp
 
+RUN curl -sSk https://getcomposer.org/installer | php \
+    && mv composer.phar /usr/local/bin/composer
+
 RUN adduser -D app
 
 USER app
